@@ -32,7 +32,7 @@ class Database
         if ($this->pdo === null) {
             // Crée un nouvel objet PDO pour la connexion
             $pdo = new PDO('mysql:dbname=db_blog;host=localhost;port=3306', 'root', 'root');
-            
+
             // Configure le mode d'erreur pour afficher les exceptions en cas de problème
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -54,6 +54,29 @@ class Database
         $datas = $req->fetchAll(PDO::FETCH_CLASS, $class_name);
 
         // Retourne les données
+        return $datas;
+    }
+
+    public function prepare($statement, $attributes, $class_name, $one = false)
+    {
+        // Prépare la requête SQL en utilisant la connexion PDO
+        $req = $this->getPDO()->prepare($statement);
+
+        // Exécute la requête avec les attributs fournis
+        $req->execute($attributes);
+
+        // Définit le mode de récupération des résultats comme des objets de la classe spécifiée
+        $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
+
+        // Si l'argument $one est vrai, récupère un seul résultat
+        if ($one) {
+            $datas = $req->fetch();
+        } else {
+            // Sinon, récupère tous les résultats
+            $datas = $req->fetchAll();
+        }
+
+        // Retourne les données récupérées
         return $datas;
     }
 }

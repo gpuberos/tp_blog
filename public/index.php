@@ -22,10 +22,10 @@ $db = new App\Database('db_blog');
 ob_start();
 
 // Inclusion de la page correspondante en fonction du paramètre 'p'
-if($p === 'home') {
+if ($p === 'home') {
     // Afficher la page d'accueil
     require '../pages/home.php';
-} elseif ($p === 'single') {
+} elseif ($p === 'article') {
     // Afficher la page d'un article individuel
     require '../pages/single.php';
 }

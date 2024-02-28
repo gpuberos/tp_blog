@@ -9,7 +9,7 @@ class Article
     public $contenu;
     public $date;
 
-    // __get Méthode magique
+    // Méthode magique __get
     public function __get($key)
     {
         // Construit le nom de la méthode à appeler (ex: getURL)

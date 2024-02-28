@@ -15,7 +15,7 @@
 // Démarrer la mise en mémoire tampon de sortie
 ob_start();
 
-if($p === 'home') {
+if ($p === 'home') {
     require '../pages/home.php';
 } elseif ($p === 'single') {
     require '../pages/single.php';
@@ -35,3 +35,7 @@ require '../pages/templates/default.php';
 **Sources** :
 - https://www.php.net/manual/fr/function.ob-start
 - https://www.php.net/manual/fr/function.ob-get-clean
+
+## A documenter :
+- setFetchMode() : Définit le mode de récupération par défaut pour cette requête. (https://www.php.net/manual/fr/pdostatement.setfetchmode.php)
+- __get() est appelée pour lire des données depuis des propriétés inaccessibles (protégées ou privées) ou non existante. (https://www.php.net/manual/fr/language.oop5.overloading.php#object.get)
