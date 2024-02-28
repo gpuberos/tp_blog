@@ -15,21 +15,26 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container">
                 <a class="navbar-brand" href="#">Project name</a>
             </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <section class="pt-5">
+                <?= $content; ?>
+            </section>
+
         </div>
-    </nav>
+    </main>
+    <footer>
 
-    <div class="container">
-
-        <div class="starter-template" style="padding-top: 100px">
-            <?= $content; ?>
-        </div>
-
-    </div><!-- /.container -->
+    </footer>
 </body>
 
 </html>
