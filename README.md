@@ -11,6 +11,23 @@
 - Cette fonction **retourne le contenu mis en mémoire tampon** et **efface le tampon**.
 - Vous pouvez ensuite l’affecter à une variable, comme dans votre exemple avec `$content`.
 
+```php
+// Démarrer la mise en mémoire tampon de sortie
+ob_start();
+
+if($p === 'home') {
+    require '../pages/home.php';
+} elseif ($p === 'single') {
+    require '../pages/single.php';
+}
+
+// Récupérer le contenu mis en mémoire tampon et effacer le tampon
+$content = ob_get_clean();
+
+// On affiche dans notre modèle HTML $content
+require '../pages/templates/default.php';
+```
+
 **Dans notre exemple** :
 1. `ob_start()` capture tout ce qui est généré par les fichiers inclus (home.php ou single.php) et le stocke temporairement.
 2. `ob_get_clean()` récupère ce contenu et l’assigne à la variable $content.
