@@ -10,6 +10,9 @@ if (isset($_GET['p'])) {
     $p = 'home';
 }
 
+// Initialisation des objets
+$db = new App\Database('blog');
+
 // Démarrer la mise en mémoire tampon de sortie
 // https://www.php.net/manual/fr/function.ob-start
 ob_start();
