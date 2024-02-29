@@ -10,10 +10,18 @@ class Article
     public $titre;
     public $contenu;
     public $date;
+    public $categorie;
 
     public static function getLast()
     {
-        return App::getDb()->query('SELECT * FROM articles LEFT JOIN categories ON category_id = categories.id', __CLASS__);
+        return App::getDb()->query("SELECT 
+                                    articles.id, 
+                                    articles.titre, 
+                                    articles.contenu, 
+                                    categories.titre as categorie 
+                                    FROM articles 
+                                    LEFT JOIN categories ON category_id = categories.id", 
+                                    __CLASS__);
     }
 
     // Méthode magique __get
