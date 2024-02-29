@@ -4,7 +4,7 @@ namespace App\Table;
 
 use \App\App;
 
-class Article
+class Article extends Table
 {
     public $id;
     public $titre;
