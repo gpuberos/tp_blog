@@ -15,7 +15,7 @@ if (isset($_GET['p'])) {
 }
 
 // Initialisation de l'objet Database avec le nom de la base de données 'db_blog'
-$db = new App\Database('db_blog');
+// $db = new App\Database('db_blog');
 
 // Démarrage de la mise en mémoire tampon de sortie
 // https://www.php.net/manual/fr/function.ob-start

@@ -2,12 +2,19 @@
 
 namespace App\Table;
 
+use \App\App;
+
 class Article
 {
     public $id;
     public $titre;
     public $contenu;
     public $date;
+
+    public static function getLast()
+    {
+        return App::getDb()->query('SELECT * FROM articles LEFT JOIN categories ON category_id = categories.id', __CLASS__);
+    }
 
     // Méthode magique __get
     public function __get($key)
